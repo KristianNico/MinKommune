@@ -16,17 +16,18 @@
     select {
       padding: 10px;
       font-size: 16px;
+      margin-bottom: 20px;
     }
     
-    .shape {
-      width: 200px;
-      height: 200px;
-      margin: 20px auto;
+    .fact {
+      margin: 0 auto;
+      max-width: 600px;
       background-color: #428bca;
       color: #fff;
-      text-align: center;
-      line-height: 200px;
-      font-size: 48px;
+      padding: 20px;
+      border-radius: 4px;
+      font-size: 18px;
+      line-height: 1.5;
     }
   </style>
 </head>
@@ -38,34 +39,35 @@
     <option value="">Vælg kommune</option>
     <option value="varde">Varde Kommune</option>
     <option value="esbjerg">Esbjerg Kommune</option>
+    <!-- Tilføj alle kommuner som valgmuligheder -->
+    <option value="kommune1">Kommune 1</option>
+    <option value="kommune2">Kommune 2</option>
+    <!-- osv. -->
   </select>
   
-  <div id="shapeContainer" class="shape"></div>
+  <div id="factContainer" class="fact"></div>
 
   <script>
     // Hent referencer til DOM-elementer
     var kommuneSelect = document.getElementById('kommune');
-    var shapeContainer = document.getElementById('shapeContainer');
+    var factContainer = document.getElementById('factContainer');
+    
+    // Historiske fakta om kommuner
+    var kommunerFacts = {
+      varde: 'Varde Kommune blev grundlagt i år 2007 og er beliggende i det vestlige Jylland.',
+      esbjerg: 'Esbjerg Kommune har en rig historie inden for fiskeri og er kendt som "Danmarks Energimetropol".',
+      // Historiske fakta for alle kommuner
+      kommune1: 'Dette er et historisk faktum om Kommune 1.',
+      kommune2: 'Dette er et historisk faktum om Kommune 2.',
+      // osv.
+    };
     
     // Lyt efter ændringer i rullemenuen
     kommuneSelect.addEventListener('change', function() {
       var valgtKommune = this.value;
       
-      // Ryd indholdet af formcontaineren
-      shapeContainer.innerHTML = '';
-      
-      // Opret og tilføj form baseret på valgt kommune
-      if (valgtKommune === 'varde') {
-        var triangle = document.createElement('div');
-        triangle.classList.add('shape');
-        triangle.innerHTML = '&#9650;'; // Trekant-unicode
-        shapeContainer.appendChild(triangle);
-      } else if (valgtKommune === 'esbjerg') {
-        var square = document.createElement('div');
-        square.classList.add('shape');
-        square.innerHTML = '&#9632;'; // Firkant-unicode
-        shapeContainer.appendChild(square);
-      }
+      // Vis det historiske faktum om den valgte kommune
+      factContainer.innerText = kommunerFacts[valgtKommune] || '';
     });
   </script>
 </body>
