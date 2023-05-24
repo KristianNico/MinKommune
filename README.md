@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rullemenu</title>
+  <title>Gå på opdagelse i Danmarks kommuner</title>
   <style>
     /* Tilpasning af stilarter */
     body {
@@ -13,9 +13,40 @@
       text-align: center;
     }
     
-    select {
+    .menu {
+      display: inline-block;
+      position: relative;
+    }
+
+    .menu-toggle {
+      background-color: #428bca;
+      color: #fff;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .menu-items {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #fff;
+      width: 100%;
       padding: 10px;
-      font-size: 16px;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      display: none;
+      text-align: left;
+    }
+
+    .menu-items.show {
+      display: block;
+    }
+
+    .menu-items a {
+      display: block;
+      padding: 5px 0;
+      text-decoration: none;
+      color: #000;
     }
     
     .fact {
@@ -32,25 +63,48 @@
   </style>
 </head>
 <body>
-  <h1>Rullemenu Eksempel</h1>
+  <h1>Gå på opdagelse i Danmarks kommuner</h1>
   
-  <label for="kommune">Vælg kommune:</label>
-  <select id="kommune">
-    <option value="">Vælg kommune</option>
-    <option value="varde">Varde Kommune</option>
-    <option value="esbjerg">Esbjerg Kommune</option>
-    <option value="odsherred">Odsherred Kommune</option>
-    <option value="vejen">Vejen Kommune</option>
-    <option value="kbh">Københavns Kommune</option>
-  </select>
+  <div class="menu">
+    <div class="menu-toggle" onclick="toggleMenu()">Vælg kommune</div>
+    <div id="menuItems" class="menu-items">
+      <a href="#" onclick="selectKommune('varde')">Varde Kommune</a>
+      <a href="#" onclick="selectKommune('esbjerg')">Esbjerg Kommune</a>
+      <a href="#" onclick="selectKommune('odsherred')">Odsherred Kommune</a>
+      <a href="#" onclick="selectKommune('vejen')">Vejen Kommune</a>
+      <a href="#" onclick="selectKommune('kbh')">Københavns Kommune</a>
+    </div>
+  </div>
   
   <div id="factContainer" class="fact"></div>
 
   <script>
     // Hent referencer til DOM-elementer
-    var kommuneSelect = document.getElementById('kommune');
+    var menuToggle = document.querySelector('.menu-toggle');
+    var menuItems = document.getElementById('menuItems');
     var factContainer = document.getElementById('factContainer');
-    
+
+    // Vis/skjul menuen
+    function toggleMenu() {
+      menuItems.classList.toggle('show');
+    }
+
+    // Vælg kommune og vis det historiske faktum
+    function selectKommune(kommune) {
+      var kommuneData = kommunerData[kommune];
+      if (kommuneData) {
+        var faktumHTML = '<h2>Historisk faktum:</h2><p>' + kommuneData.fact + '</p>';
+        var indbyggereHTML = '<p>' + kommuneData.indbyggere + '</p>';
+        var arealHTML = '<p>' + kommuneData.areal + '</p>';
+
+        factContainer.innerHTML = faktumHTML + indbyggereHTML + arealHTML;
+      } else {
+        factContainer.innerHTML = '';
+      }
+
+      toggleMenu();
+    }
+
     // Historiske fakta og oplysninger om kommuner
     var kommunerData = {
       varde: {
@@ -79,23 +133,6 @@
         areal: 'Geografisk areal: 86 km²'
       },
     };
-    
-    // Lyt efter ændringer i rullemenuen
-    kommuneSelect.addEventListener('change', function() {
-      var valgtKommune = this.value;
-      
-      // Vis det historiske faktum og oplysninger om den valgte kommune
-      var kommuneData = kommunerData[valgtKommune];
-      if (kommuneData) {
-        var faktumHTML = '<h2>Historisk faktum:</h2><p>' + kommuneData.fact + '</p>';
-        var indbyggereHTML = '<p>' + kommuneData.indbyggere + '</p>';
-        var arealHTML = '<p>' + kommuneData.areal + '</p>';
-
-        factContainer.innerHTML = faktumHTML + indbyggereHTML + arealHTML;
-      } else {
-        factContainer.innerHTML = '';
-      }
-    });
   </script>
 </body>
 </html>
