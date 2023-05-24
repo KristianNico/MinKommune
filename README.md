@@ -1,11 +1,9 @@
-# MinKommune
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interaktiv hjemmeside</title>
+  <title>Rullemenu</title>
   <style>
     /* Tilpasning af stilarter */
     body {
@@ -15,31 +13,59 @@
       text-align: center;
     }
     
-    .button {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #428bca;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
+    select {
+      padding: 10px;
+      font-size: 16px;
     }
     
-    .button:hover {
-      background-color: #3276b1;
+    .shape {
+      width: 200px;
+      height: 200px;
+      margin: 20px auto;
+      background-color: #428bca;
+      color: #fff;
+      text-align: center;
+      line-height: 200px;
+      font-size: 48px;
     }
   </style>
 </head>
 <body>
-  <h1>Min Interaktive Hjemmeside</h1>
-  <p>Velkommen til min hjemmeside!</p>
-  <button class="button">Klik her</button>
+  <h1>Rullemenu Eksempel</h1>
+  
+  <label for="kommune">Vælg kommune:</label>
+  <select id="kommune">
+    <option value="">Vælg kommune</option>
+    <option value="varde">Varde Kommune</option>
+    <option value="esbjerg">Esbjerg Kommune</option>
+  </select>
+  
+  <div id="shapeContainer" class="shape"></div>
 
   <script>
-    // Tilføj interaktivitet ved hjælp af JavaScript
-    var button = document.querySelector('.button');
-    button.addEventListener('click', function() {
-      alert('Du har klikket på knappen!');
+    // Hent referencer til DOM-elementer
+    var kommuneSelect = document.getElementById('kommune');
+    var shapeContainer = document.getElementById('shapeContainer');
+    
+    // Lyt efter ændringer i rullemenuen
+    kommuneSelect.addEventListener('change', function() {
+      var valgtKommune = this.value;
+      
+      // Ryd indholdet af formcontaineren
+      shapeContainer.innerHTML = '';
+      
+      // Opret og tilføj form baseret på valgt kommune
+      if (valgtKommune === 'varde') {
+        var triangle = document.createElement('div');
+        triangle.classList.add('shape');
+        triangle.innerHTML = '&#9650;'; // Trekant-unicode
+        shapeContainer.appendChild(triangle);
+      } else if (valgtKommune === 'esbjerg') {
+        var square = document.createElement('div');
+        square.classList.add('shape');
+        square.innerHTML = '&#9632;'; // Firkant-unicode
+        shapeContainer.appendChild(square);
+      }
     });
   </script>
 </body>
