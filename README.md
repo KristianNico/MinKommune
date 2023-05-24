@@ -4,7 +4,7 @@
 
 <head>
 
-<title>Min Kommune</title>
+<title>Min Kommune </title>
 
 </head>
 
