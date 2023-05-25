@@ -136,3 +136,35 @@
   </script>
 </body>
 </html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Placering</title>
+</head>
+<body>
+  <h1>Vis min placering</h1>
+  
+  <button onclick="getLocation()">Få min placering</button>
+  
+  <p id="demo"></p>
+  
+  <script>
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        alert("Geolocation er ikke understøttet i denne browser.");
+      }
+    }
+    
+    function showPosition(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+      
+      document.getElementById("demo").innerHTML = "Din placering: " + latitude + ", " + longitude;
+    }
+  </script>
+</body>
+</html>
