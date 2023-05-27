@@ -1,3 +1,4 @@
+layout: NewLayout
 # Det seneste Kommunalvalg
 
 Dette er en almindelig afsnitstekst.
