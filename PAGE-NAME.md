@@ -1,3 +1,13 @@
-layout: page
-title: Valget i 2021
-permalink: https://KristianNico.github.io/about/contact-us
+# Det seneste Kommunalvalg
+
+Dette er en almindelig afsnitstekst.
+
+- Dette er en punktopstilling.
+- Dette er en anden punktopstilling.
+
+> Dette er et citat.
+
+Her er en kodeblok:
+
+```python
+print("Hello, world!")
