@@ -1,4 +1,8 @@
+---
 layout: NewLayout
+title: Min side
+---
+
 # Det seneste Kommunalvalg
 
 Dette er en almindelig afsnitstekst.
