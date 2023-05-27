@@ -1,5 +1,5 @@
 ---
-layout: NewLayout
+layout: default
 title: Min side
 ---
 
