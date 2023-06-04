@@ -7,18 +7,15 @@
 <body>
   <h1>JavaScript i HTML</h1>
 
+  <button onclick="hilsen()">Klik her</button>
+
   <script>
-    // Variabeldeklaration
-    var navn = "John";
-    var alder = 30;
-
-    // Funktion
     function hilsen() {
-      console.log("Hej, " + navn + "! Du er " + alder + " år gammel.");
+      var navn = "John";
+      var alder = 30;
+      var besked = "Hej, " + navn + "! Du er " + alder + " år gammel.";
+      alert(besked);
     }
-
-    // Kald af funktion
-    hilsen();
   </script>
 </body>
 </html>
