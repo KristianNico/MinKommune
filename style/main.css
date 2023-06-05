@@ -10,12 +10,20 @@ header {
   color: #fff;
   padding: 20px;
   text-align: center;
+  display: flex;
+  align-items: center;
 }
 
 h1 {
   font-size: 36px;
   font-weight: bold;
   margin: 0;
+}
+
+img.logo {
+  width: 100px; /* Juster størrelsen efter behov */
+  height: auto; /* Bevar billedets oprindelige proportioner */
+  margin-right: 10px; /* Tilpas margenen efter behov */
 }
 
 /* Container styling */
@@ -47,4 +55,3 @@ footer {
   padding: 20px;
   text-align: center;
 }
-
