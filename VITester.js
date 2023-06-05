@@ -1,4 +1,3 @@
-// @ts-mime-type text/javascript
 function hilsen() {
   var navn = "Kristian";
   var alder = 30;
