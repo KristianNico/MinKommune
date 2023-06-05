@@ -2,7 +2,7 @@
 var data = [{"KANDIDAT": "A.C. Hoxcer Nielsen", "STEMMETYPE": "Personlige stemmer", "TID": "2021", "INDHOLD": "373", "Partibogstav": "A", "Kommune": "Varde Kommune"}, {"KANDIDAT": "Abdinoor Adam Hassan", "STEMMETYPE": "Personlige stemmer", "TID": "2021", "INDHOLD": "780", "Partibogstav": "A", "Kommune": "Odense Kommune"}]
 
 // Skalaer
-var width = 50000;
+var width = 500;
 var xScale = d3.scaleBand().range([0, width]).padding(0.1).domain(data.map(function(d) {
   return d.KANDIDAT;
 }));
