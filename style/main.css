@@ -1,4 +1,50 @@
+/* Global styling */
 body {
-  background-color: turquoise;
-  font-family: Verdana, sans-serif;
+  font-family: Verdana, Arial, sans-serif;
+  background-color: #f9f9f9;
 }
+
+/* Header styling */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Container styling */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Button styling */
+.button {
+  display: inline-block;
+  background-color: #ff6600;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #ff9933;
+}
+
+/* Footer styling */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
