@@ -1,5 +1,8 @@
 // Data
-var data = [{"KANDIDAT": "A.C. Hoxcer Nielsen", "STEMMETYPE": "Personlige stemmer", "TID": "2021", "INDHOLD": "373", "Partibogstav": "A", "Kommune": "Varde Kommune"}, {"KANDIDAT": "Abdinoor Adam Hassan", "STEMMETYPE": "Personlige stemmer", "TID": "2021", "INDHOLD": "780", "Partibogstav": "A", "Kommune": "Odense Kommune"}]
+var data = [
+  {"KANDIDAT": "A.C. Hoxcer Nielsen", "STEMMETYPE": "Personlige stemmer", "TID": "2021", "INDHOLD": "373", "Partibogstav": "A", "Kommune": "Varde Kommune"},
+  {"KANDIDAT": "Abdinoor Adam Hassan", "STEMMETYPE": "Personlige stemmer", "TID": "2021", "INDHOLD": "780", "Partibogstav": "A", "Kommune": "Odense Kommune"}
+];
 
 // Skalaer
 var width = 500;
@@ -31,7 +34,11 @@ svg.selectAll(".bar")
   .attr("height", function(d) {
     return height - yScale(d.INDHOLD);
   })
-  .attr("fill", "steelblue");
+  .attr("fill", "steelblue")
+  .append("title") // Tilføj en titel til hver søjle
+  .text(function(d) {
+    return d.KANDIDAT; // Viser kandidatværdien som tooltip
+  });
 
 // Aksen
 var xAxis = d3.axisBottom(xScale);
@@ -76,5 +83,9 @@ function updateChart() {
     .attr("width", xScale.bandwidth())
     .attr("height", function(d) {
       return height - yScale(d.INDHOLD);
+    })
+    .select("title") // Opdater titlen for hver søjle
+    .text(function(d) {
+      return d.KANDIDAT;
     });
 }
