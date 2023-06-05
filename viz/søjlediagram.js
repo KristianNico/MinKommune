@@ -1,5 +1,5 @@
  // Data til søjlediagrammet
-    var data = [10, 25, 15, 12, 8];
+    var data = [40, 25, 15, 12, 8];
 
     // Mål for diagrammet
     var width = 400;
