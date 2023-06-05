@@ -22,7 +22,7 @@ fetch(url)
     var svg = d3.select("body").append("svg").attr("width", width).attr("height", height);
 
     // Søjler
-    svg.selectAll(".bar")
+    var bars = svg.selectAll(".bar")
       .data(data)
       .enter()
       .append("rect")
@@ -75,8 +75,13 @@ fetch(url)
         return d.KANDIDAT;
       }));
 
-      svg.selectAll(".bar")
-        .data(filteredData)
+      var updatedBars = svg.selectAll(".bar")
+        .data(filteredData);
+
+      updatedBars.enter()
+        .append("rect")
+        .attr("class", "bar")
+        .merge(updatedBars)
         .attr("x", function(d) {
           return xScale(d.KANDIDAT);
         })
@@ -87,10 +92,13 @@ fetch(url)
         .attr("height", function(d) {
           return height - yScale(d.INDHOLD);
         })
+        .attr("fill", "steelblue")
         .select("title") // Opdater titlen for hver søjle
         .text(function(d) {
           return d.KANDIDAT;
         });
+
+      updatedBars.exit().remove();
     }
   })
   .catch(function(error) {
