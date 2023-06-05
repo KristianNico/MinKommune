@@ -1,5 +1,5 @@
 // Data
-var data = [{"KANDIDAT": "A.C. Hoxcer Nielsen", "STEMMETYPE": "Personlige stemmer", "TID": "2021", "INDHOLD": "373", "Partibogstav": "A", "Kommune": "Varde Kommune"}, {"KANDIDAT": "Abdinoor Adam Hassan", "STEMMETYPE": "Personlige stemmer", "TID": "2021", "INDHOLD": "780", "Partibogstav": "A", "Kommune": "Odense Kommune"}
+var data = [{"KANDIDAT": "A.C. Hoxcer Nielsen", "STEMMETYPE": "Personlige stemmer", "TID": "2021", "INDHOLD": "373", "Partibogstav": "A", "Kommune": "Varde Kommune"}, {"KANDIDAT": "Abdinoor Adam Hassan", "STEMMETYPE": "Personlige stemmer", "TID": "2021", "INDHOLD": "780", "Partibogstav": "A", "Kommune": "Odense Kommune"}]
 
 // Skalaer
 var width = 50000;
