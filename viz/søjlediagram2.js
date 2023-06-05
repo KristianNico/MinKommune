@@ -21,7 +21,7 @@ var svg = d3
   .append("svg")
   .attr("width", width)
   .attr("height", height);
-// S�jler
+// Søjler
 svg.selectAll(".bar")
   .data(data)
   .enter()
