@@ -28,14 +28,14 @@ svg.selectAll(".bar")
   .append("rect")
   .attr("class", "bar")
   .attr("x", function(d) {
-    return xScale(d.A);
+    return xScale(d.KANDIDAT);
   })
   .attr("y", function(d) {
-    return yScale(d.B);
+    return yScale(d.INDHOLD);
   })
   .attr("width", xScale.bandwidth())
   .attr("height", function(d) {
-    return height - yScale(d.B);
+    return height - yScale(d.INDHOLD);
   })
   .attr("fill", "steelblue");
 // Aksen
