@@ -21,27 +21,44 @@ fetch(url)
     // SVG-container
     var svg = d3.select("body").append("svg").attr("width", width).attr("height", height);
 
-    // Søjler
-    var bars = svg.selectAll(".bar")
-      .data(data)
-      .enter()
-      .append("rect")
-      .attr("class", "bar")
-      .attr("x", function(d) {
-        return xScale(d.KANDIDAT);
-      })
-      .attr("y", function(d) {
-        return yScale(d.INDHOLD);
-      })
-      .attr("width", xScale.bandwidth())
-      .attr("height", function(d) {
-        return height - yScale(d.INDHOLD);
-      })
-      .attr("fill", "steelblue")
-      .append("title") // Tilføj en titel til hver søjle
-      .text(function(d) {
-        return d.KANDIDAT; // Viser kandidatværdien som tooltip
-      });
+  // Søjler
+var bars = svg.selectAll(".bar")
+  .data(data)
+  .enter()
+  .append("rect")
+  .attr("class", "bar")
+  .attr("x", function(d) {
+    return xScale(d.KANDIDAT);
+  })
+  .attr("y", function(d) {
+    return yScale(d.INDHOLD);
+  })
+  .attr("width", xScale.bandwidth())
+  .attr("height", function(d) {
+    return height - yScale(d.INDHOLD);
+  })
+  .attr("fill", "steelblue")
+  .append("title") // Tilføj en titel til hver søjle
+  .text(function(d) {
+    return d.KANDIDAT; // Viser kandidatværdien som tooltip
+  });
+
+// Tekst på søjlerne
+svg.selectAll(".bar-label")
+  .data(data)
+  .enter()
+  .append("text")
+  .attr("class", "bar-label")
+  .attr("x", function(d) {
+    return xScale(d.KANDIDAT) + xScale.bandwidth() / 2; // Centrer teksten på søjlen
+  })
+  .attr("y", function(d) {
+    return yScale(d.INDHOLD) - 5; // Placér teksten lige over søjlen
+  })
+  .text(function(d) {
+    return d.KANDIDAT;
+  })
+  .attr("text-anchor", "middle"); // Juster teksten til midten af søjlen
 
     // Aksen
     var xAxis = d3.axisBottom(xScale);
