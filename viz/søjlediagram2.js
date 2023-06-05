@@ -7,13 +7,13 @@ var xScale = d3
   .range([0, width])
   .padding(0.1)
   .domain(data.map(function(d) {
-    return d.A;
+    return d.KANDIDAT;
   }));
 var yScale = d3
   .scaleLinear()
   .range([height, 0])
   .domain([0, d3.max(data, function(d) {
-    return d.B;
+    return d.INDHOLD;
   })]);
 // SVG-container
 var svg = d3
