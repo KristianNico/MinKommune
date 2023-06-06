@@ -1,6 +1,6 @@
-## ideer
-#boligsiden
-#krl
+## Ideer
+## boligsiden
+### krl
 #husleje
 #indkomst
 #til og fraflytning
