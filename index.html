@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Min Kommune er din kommune</title>
+  </script>  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://KristianNico.github.io/MinKommune/viz/søjlediagram.js"></script>
+  <script src="https://KristianNico.github.io/MinKommune/NewBar.js"></script>
   <link rel="stylesheet" href="https://KristianNico.github.io/MinKommune/style/main.css">
 </head>
 <body>
@@ -10,9 +13,26 @@
   <img class="logo" src="PNG.png" alt="Logo">
   <h1>Min Kommune</h1>
 </header>
-  <svg id="bar"></svg>
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="https://KristianNico.github.io/MinKommune/viz/søjlediagram.js"></script>
-  <script src="https://KristianNico.github.io/MinKommune/NewBar.js"></script>
+  <div class="graph-container">
+    <!-- Graf 1 -->
+    <canvas id="graph1"></canvas>
+  </div>
+
+  <div class="graph-container">
+    <!-- Graf 2 -->
+    <canvas id="graph2"></canvas>
+  </div>
+
+  <script>
+    // JavaScript-kode til at generere graferne
+    // ...
+
+    // Eksempel på brug af de refererede graffiler
+    // Her skal du bruge de relevante funktioner eller metoder fra de inkluderede graffiler for at generere graferne
+    // Du kan finde dokumentation eller eksempler for at bruge de specifikke graffiler, hvis det er nødvendigt
+    generateGraf1(); // Funktion fra "søjlediagram.js" til at generere Graf 1
+
+    generateGraf2(); // Funktion fra "NewBar.js" til at generere Graf 2
+  </script>
 </body>
 </html>
