@@ -1,67 +1,20 @@
-// 
-    const sample = [
-      {
-        language: 'Rust',
-        value: 78.9,
-        color: '#000000'
-      },
-      {
-        language: 'Kotlin',
-        value: 75.1,
-        color: '#00a2ee'
-      },
-      {
-        language: 'Python',
-        value: 68.0,
-        color: '#fbcb39'
-      },
-      {
-        language: 'TypeScript',
-        value: 67.0,
-        color: '#007bc8'
-      },
-      {
-        language: 'Go',
-        value: 65.6,
-        color: '#65cedb'
-      },
-      {
-        language: 'Swift',
-        value: 65.1,
-        color: '#ff6e52'
-      },
-      {
-        language: 'JavaScript',
-        value: 61.9,
-        color: '#f9de3f'
-      },
-      {
-        language: 'C#',
-        value: 60.4,
-        color: '#5d2f8e'
-      },
-      {
-        language: 'F#',
-        value: 59.6,
-        color: '#008fc9'
-      },
-      {
-        language: 'Clojure',
-        value: 59.6,
-        color: '#507dca'
-      }
-    ];
+const svg = d3.select('#graph1');
+const svgContainer = d3.select('#container');
 
-    const svg = d3.select('#graph1');
-    const svgContainer = d3.select('#container');
-    
-    const margin = 80;
-    const width = 1000 - 2 * margin;
-    const height = 1000 - 2 * margin;
+const margin = 80;
+const width = 1000 - 2 * margin;
+const height = 1000 - 2 * margin;
+
+// Hent data eksternt
+fetch('https://eksempel.com/data')
+  .then(response => response.json())
+  .then(data => {
+    // Brug data i din kode
+    const sample = data;
 
     const chart = svg.append('g')
       .attr('transform', `translate(${margin}, ${margin})`);
-
+    
     const xScale = d3.scaleBand()
       .range([0, width])
       .domain(sample.map((s) => s.language))
@@ -202,4 +155,7 @@
       .attr('y', height + margin * 1.7)
       .attr('text-anchor', 'start')
       .text('Source: Stack Overflow, 2018')
-  
+  })
+  .catch(error => {
+    console.error('Fejl ved indlæsning af data:', error);
+  });
