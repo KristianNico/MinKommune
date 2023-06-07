@@ -52,7 +52,7 @@
       }
     ];
 
-    const svg = d3.select('svg');
+    const svg = d3.select('#graph1');
     const svgContainer = d3.select('#container');
     
     const margin = 80;
