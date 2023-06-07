@@ -6,7 +6,7 @@ const width = 1000 - 2 * margin;
 const height = 1000 - 2 * margin;
 
 // Hent data eksternt
-fetch('https://eksempel.com/data')
+fetch('https://KristianNico.github.io/MinKommune/data/KVPERS21.JSON')
   .then(response => response.json())
   .then(data => {
     // Brug data i din kode
