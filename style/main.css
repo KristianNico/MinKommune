@@ -25,12 +25,20 @@ img.logo {
   height: auto; /* Bevar billedets oprindelige proportioner */
   margin-right: 10px; /* Tilpas margenen efter behov */
 }
+div#layout {
+  text-align: center;
+}
 
-/* Container styling */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+div#container {
+  width: 1000px;
+  height: 600px;
+  margin: auto;
+  background-color: #2F4A6D;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
 }
 
 /* Button styling */
