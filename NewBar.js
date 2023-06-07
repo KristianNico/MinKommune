@@ -57,7 +57,7 @@
     
     const margin = 80;
     const width = 1000 - 2 * margin;
-    const height = 600 - 2 * margin;
+    const height = 1000 - 2 * margin;
 
     const chart = svg.append('g')
       .attr('transform', `translate(${margin}, ${margin})`);
