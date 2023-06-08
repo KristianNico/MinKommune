@@ -18,7 +18,7 @@ function generateGraph1() {
 
       const xScale = d3.scaleBand()
         .range([0, width])
-        .domain(sample.map((s) => s.language))
+        .domain(sample.map((s) => s.KANDIDAT))
         .padding(0.4)
 
       const yScale = d3.scaleLinear()
@@ -64,21 +64,21 @@ function generateGraph1() {
         .append('rect')
         .attr('class', 'bar')
         .attr('x', (g) => xScale(g.language))
-        .attr('y', (g) => yScale(g.value))
-        .attr('height', (g) => height - yScale(g.value))
+        .attr('y', (g) => yScale(g.INDHOLD))
+        .attr('height', (g) => height - yScale(g.INDHOLD))
         .attr('width', xScale.bandwidth())
         .on('mouseenter', function (actual, i) {
-          d3.selectAll('.value')
+          d3.selectAll('.INDHOLD')
             .attr('opacity', 0)
 
           d3.select(this)
             .transition()
             .duration(300)
             .attr('opacity', 0.6)
-            .attr('x', (a) => xScale(a.language) - 5)
+            .attr('x', (a) => xScale(a.KANDIDAT) - 5)
             .attr('width', xScale.bandwidth() + 10)
 
-          const y = yScale(actual.value)
+          const y = yScale(actual.INDHOLD)
 
           line = chart.append('line')
             .attr('id', 'limit')
@@ -89,12 +89,12 @@ function generateGraph1() {
 
           barGroups.append('text')
             .attr('class', 'divergence')
-            .attr('x', (a) => xScale(a.language) + xScale.bandwidth() / 2)
-            .attr('y', (a) => yScale(a.value) + 30)
+            .attr('x', (a) => xScale(a.KANDIDAT) + xScale.bandwidth() / 2)
+            .attr('y', (a) => yScale(a.INDHOLD) + 30)
             .attr('fill', 'white')
             .attr('text-anchor', 'middle')
             .text((a, idx) => {
-              const divergence = (a.value - actual.value).toFixed(1)
+              const divergence = (a.INDHOLD - actual.INDHOLD).toFixed(1)
 
               let text = ''
               if (divergence > 0) text += '+'
@@ -105,14 +105,14 @@ function generateGraph1() {
 
         })
         .on('mouseleave', function () {
-          d3.selectAll('.value')
+          d3.selectAll('.INDHOLD')
             .attr('opacity', 1)
 
           d3.select(this)
             .transition()
             .duration(300)
             .attr('opacity', 1)
-            .attr('x', (a) => xScale(a.language))
+            .attr('x', (a) => xScale(a.KANDIDAT))
             .attr('width', xScale.bandwidth())
 
           chart.selectAll('#limit').remove()
@@ -121,11 +121,11 @@ function generateGraph1() {
 
       barGroups 
         .append('text')
-        .attr('class', 'value')
-        .attr('x', (a) => xScale(a.language) + xScale.bandwidth() / 2)
-        .attr('y', (a) => yScale(a.value) + 30)
+        .attr('class', 'INDHOLD')
+        .attr('x', (a) => xScale(a.KANDIDAT) + xScale.bandwidth() / 2)
+        .attr('y', (a) => yScale(a.INDHOLD) + 30)
         .attr('text-anchor', 'middle')
-        .text((a) => `${a.value}%`)
+        .text((a) => `${a.INDHOLD}%`)
 
       svg
         .append('text')
@@ -161,3 +161,4 @@ function generateGraph1() {
       console.error('Fejl ved indlæsning af data:', error);
     });
 }
+
