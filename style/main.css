@@ -41,12 +41,12 @@ svg {
   height: 100%;
 }
 .bar {
-  fill: #80cbc4;
+  fill: #f9f9f9;
 }
 
 text {
   font-size: 12px;
-  fill: #fff;
+  fill: #333;
 }
 
 path {
