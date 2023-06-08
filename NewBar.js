@@ -1,5 +1,7 @@
 function generateGraph1() {
   const svg = d3.select('#Graph1');
+  const svgContainer = d3.select('#container');
+  
   const margin = 80;
   const width = 1000 - 2 * margin;
   const height = 1000 - 2 * margin;
