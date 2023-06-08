@@ -23,7 +23,7 @@ function generateGraph1() {
 
       const yScale = d3.scaleLinear()
         .range([height, 0])
-        .domain([0, 100]);
+        .domain([0, height]);
 
       // vertical grid lines
       // const makeXLines = () => d3.axisBottom()
