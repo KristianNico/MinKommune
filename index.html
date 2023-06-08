@@ -2,29 +2,21 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Min Kommune er din kommune</title>
+  <title>Min Kommune er Din Kommune</title>
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <link rel="stylesheet" href="https://KristianNico.github.io/MinKommune/style/main.css">
+  <script src="https://KristianNico.github.io/MinKommune/NewBar.js"></script>
 </head>
 <body>
-<header>
-  <img class="logo" src="https://KristianNico.github.io/MinKommune/PNG.png" alt="Logo">
-  <h1>Min Kommune</h1>
-</header>
-<div id="layout">
-    <!-- <h2>Bar chart example</h2> -->
-    <div id='container'>
-      <svg id="graph1"></svg>
-    </div>
-  </div>
- 
-<script src="https://KristianNico.github.io/MinKommune/NewBar.js"></script>
-<script>
-  // JavaScript-kode til at generere graferne
-  // ...
-
-  // Eksempel på brug af den inkluderede graffil til at generere Graf 1
-  generateGraf1(); // Funktion fra "søjlediagram.js" til at generere Graf 1
-</script>
+  <header>
+    <img class="logo" src="https://KristianNico.github.io/MinKommune/PNG.png" alt="Logo">
+    <h1>Min Kommune</h1>
+  </header>
+  <div id="Graph1"></div>
+  <div id="Graph2"></div>
+  <script>
+  generateGraph1(); 
+  generateGraph2(); 
+  </script>
 </body>
 </html>
