@@ -1,12 +1,12 @@
 function generateGraph1() {
   const svg = d3.select('#Graph1');
   const svgContainer = d3.select('#container');
-  
+
   const margin = 80;
   const width = 1000 - 2 * margin;
   const height = 600 - 2 * margin;
 
- // Hent data eksternt
+  // Hent data eksternt
   fetch('https://KristianNico.github.io/MinKommune/data/KVPERS21.JSON')
     .then(response => response.json())
     .then(data => {
@@ -29,14 +29,52 @@ function generateGraph1() {
       const yScale = d3.scaleLinear()
         .range([height, 0])
         .domain([0, d3.max(lowestValues, (d) => d.INDHOLD)]);
-       
-   
-      // vertical grid lines
-      // const makeXLines = () => d3.axisBottom()
-      //   .scale(xScale)
+
+      const barGroups = chart.selectAll()
+        .data(lowestValues) // Brug de 10 laveste værdier i stedet for det oprindelige data
+        .enter()
+        .append('g')
+        .attr('transform', (d) => `translate(${xScale(d.KANDIDAT)}, 0)`);
+
+      barGroups
+        .append('rect')
+        .attr('class', 'bar')
+        .attr('y', (g) => yScale(g.INDHOLD))
+        .attr('height', (g) => height - yScale(g.INDHOLD))
+        .attr('width', xScale.bandwidth())
+        .on('mouseenter', function (actual, i) {
+          // ...
+        })
+        .on('mouseleave', function () {
+          // ...
+        });
+
+      barGroups
+        .append('rect')
+        .attr('class', 'bar')
+        .attr('y', (g) => yScale(g.INDHOLD))
+        .attr('height', (g) => height - yScale(g.INDHOLD))
+        .attr('width', xScale.bandwidth())
+        .on('mouseenter', function (actual, i) {
+          d3.selectAll('.INDHOLD')
+            .attr('opacity', 0);
+          // ...
+        })
+        .on('mouseleave', function () {
+          // ...
+        });
+
+      barGroups
+        .append('text')
+        .attr('class', 'INDHOLD')
+        .attr('x', xScale.bandwidth() / 2)
+        .attr('y', (g) => yScale(g.INDHOLD) + 30)
+        .attr('text-anchor', 'middle')
+        .attr('transform', 'rotate(90)')
+        .text((g) => g.KANDIDAT);
 
       const makeYLines = () => d3.axisLeft()
-        .scale(yScale)
+        .scale(yScale);
 
       chart.append('g')
         .attr('transform', `translate(0, ${height})`)
@@ -45,119 +83,12 @@ function generateGraph1() {
       chart.append('g')
         .call(d3.axisLeft(yScale));
 
-      // vertical grid lines
-      // chart.append('g')
-      //   .attr('class', 'grid')
-      //   .attr('transform', `translate(0, ${height})`)
-      //   .call(makeXLines()
-      //     .tickSize(-height, 0, 0)
-      //     .tickFormat('')
-      //   )
-
       chart.append('g')
         .attr('class', 'grid')
         .call(makeYLines()
           .tickSize(-width, 0, 0)
           .tickFormat('')
-        )
-
-      const barGroups = chart.selectAll()
-        .data(lowestValues) // Brug de 10 laveste værdier i stedet for det oprindelige data
-        .enter()
-        .append('g');
-        .attr('transform', (d) => `translate(${xScale(d.KANDIDAT)}, 0)`);
-    
-   barGroups
-  .append('rect')
-  .attr('class', 'bar')
-  .attr('y', (g) => yScale(g.INDHOLD))
-  .attr('height', (g) => height - yScale(g.INDHOLD))
-  .attr('width', xScale.bandwidth())
-  .on('mouseenter', function (actual, i) {
-    // ...
-  })
-  .on('mouseleave', function () {
-    // ...
-  });
-
-    
-    barGroups
-        .append('rect')
-        .attr('class', 'bar')
-        .attr('y', (g) => yScale(g.INDHOLD))
-        .attr('height', (g) => height - yScale(g.INDHOLD))
-        .attr('width', xScale.bandwidth())
-        .on('mouseenter', function (actual, i) {
-          d3.selectAll('.INDHOLD')
-            .attr('opacity', 0)
-        .on('mouseleave', function () {
-          // ...
-        });
-
-      barGroups
-  .append('text')
-  .attr('class', 'INDHOLD')
-  .attr('x', xScale.bandwidth() / 2)
-  .attr('y', (g) => yScale(g.INDHOLD) + 30)
-  .attr('text-anchor', 'middle')
-  .attr('transform', 'rotate(90)')
-  .text((g) => g.KANDIDAT);
-
-          d3.select(this)
-            .transition()
-            .duration(300)
-            .attr('opacity', 0.6)
-            .attr('x', (a) => xScale(a.KANDIDAT) - 5)
-            .attr('width', xScale.bandwidth() + 10)
-
-          const y = yScale(actual.INDHOLD)
-
-          line = chart.append('line')
-            .attr('id', 'limit')
-            .attr('x1', 0)
-            .attr('y1', y)
-            .attr('x2', width)
-            .attr('y2', y)
-
-          barGroups.append('text')
-            .attr('class', 'divergence')
-            .attr('x', (a) => xScale(a.KANDIDAT) + xScale.bandwidth() / 2)
-            .attr('y', (a) => yScale(a.INDHOLD) - 10)
-            .attr('fill', 'white')
-            .attr('text-anchor', 'middle')
-            .text((a, idx) => {
-              const divergence = (a.INDHOLD - actual.INDHOLD).toFixed(1)
-
-              let text = ''
-              if (divergence > 0) text += '+'
-              text += `${divergence}`
-
-              return idx !== i ? text : '';
-            })
-
-        })
-        .on('mouseleave', function () {
-          d3.selectAll('.INDHOLD')
-            .attr('opacity', 1)
-
-          d3.select(this)
-            .transition()
-            .duration(300)
-            .attr('opacity', 1)
-            .attr('x', (a) => xScale(a.KANDIDAT))
-            .attr('width', xScale.bandwidth())
-
-          chart.selectAll('#limit').remove()
-          chart.selectAll('.divergence').remove()
-        })
-
-      barGroups 
-        .append('text')
-        .attr('class', 'INDHOLD')
-        .attr('x', (a) => xScale(a.KANDIDAT) + xScale.bandwidth() / 2)
-        .attr('y', (a) => yScale(a.INDHOLD) + 30)
-        .attr('text-anchor', 'middle')
-        .text((a) => `${a.INDHOLD}`)
+        );
 
       svg
         .append('text')
@@ -166,24 +97,23 @@ function generateGraph1() {
         .attr('y', margin / 2.4)
         .attr('transform', 'rotate(-90)')
         .attr('text-anchor', 'middle')
-        .text('Antal personlige stemmer')
+        .text('Antal personlige stemmer');
 
       svg.append('text')
         .attr('class', 'title')
         .attr('x', width / 2 + margin)
         .attr('y', 40)
         .attr('text-anchor', 'middle')
-        .text('Antal personlige stemmer ved KV 2021')
+        .text('Antal personlige stemmer ved KV 2021');
 
       svg.append('text')
         .attr('class', 'source')
         .attr('x', width - margin / 2)
         .attr('y', height + margin * 1.7)
         .attr('text-anchor', 'start')
-        .text('Kilde: Danmarks Statistik')
+        .text('Kilde: Danmarks Statistik');
     })
     .catch(error => {
       console.error('Fejl ved indlæsning af data:', error);
     });
 }
-
