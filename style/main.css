@@ -33,7 +33,7 @@ div#container {
   width: 1000px;
   height: 600px;
   margin: auto;
-  background-color: #f9f9f9;
+  background-color: #cccccc;
 }
 
 svg {
@@ -41,7 +41,7 @@ svg {
   height: 100%;
 }
 .bar {
-  fill: #f9f9f9;
+  fill: #6B7280;
 }
 
 text {
