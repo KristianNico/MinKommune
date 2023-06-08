@@ -6,25 +6,31 @@ function generateGraph1() {
   const width = 1000 - 2 * margin;
   const height = 600 - 2 * margin;
 
-  // Hent data eksternt
+ // Hent data eksternt
   fetch('https://KristianNico.github.io/MinKommune/data/KVPERS21.JSON')
     .then(response => response.json())
     .then(data => {
       // Brug data i din kode
       const sample = data;
 
+      // Sortér data efter INDHOLD i stigende rækkefølge
+      const sortedData = sample.sort((a, b) => a.INDHOLD - b.INDHOLD);
+
+      // Vælg de 10 laveste værdier og deres tilhørende kolonner
+      const lowestValues = sortedData.slice(0, 10);
       const chart = svg.append('g')
         .attr('transform', `translate(${margin}, ${margin})`);
 
       const xScale = d3.scaleBand()
         .range([0, width])
-        .domain(sample.map((s) => s.KANDIDAT))
-        .padding(0.4)
- 
+        .domain(lowestValues.map((s) => s.KANDIDAT))
+        .padding(0.4);
+
       const yScale = d3.scaleLinear()
         .range([height, 0])
-        .domain([0, 1000]);
-    
+        .domain([0, d3.max(lowestValues, (d) => d.INDHOLD)]);
+       
+   
       // vertical grid lines
       // const makeXLines = () => d3.axisBottom()
       //   .scale(xScale)
@@ -56,11 +62,11 @@ function generateGraph1() {
         )
 
       const barGroups = chart.selectAll()
-        .data(sample)
+        .data(lowestValues) // Brug de 10 laveste værdier i stedet for det oprindelige data
         .enter()
-        .append('g')
+        .append('g');
 
-      barGroups
+    barGroups
         .append('rect')
         .attr('class', 'bar')
         .attr('x', (g) => xScale(g.KANDIDAT))
