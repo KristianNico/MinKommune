@@ -125,7 +125,7 @@ function generateGraph1() {
         .attr('x', (a) => xScale(a.KANDIDAT) + xScale.bandwidth() / 2)
         .attr('y', (a) => yScale(a.INDHOLD) + 30)
         .attr('text-anchor', 'middle')
-        .text((a) => `${a.INDHOLD}%`)
+        .text((a) => `${a.INDHOLD}`)
 
       svg
         .append('text')
