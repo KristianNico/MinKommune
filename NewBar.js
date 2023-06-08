@@ -143,13 +143,6 @@ function generateGraph1() {
         .text('Antal personlige stemmer')
 
       svg.append('text')
-        .attr('class', 'label')
-        .attr('x', width / 2 + margin)
-        .attr('y', height + margin * 1.7)
-        .attr('text-anchor', 'middle')
-        .text('Languages')
-
-      svg.append('text')
         .attr('class', 'title')
         .attr('x', width / 2 + margin)
         .attr('y', 40)
