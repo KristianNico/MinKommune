@@ -134,7 +134,7 @@ function generateGraph1() {
         .attr('y', margin / 2.4)
         .attr('transform', 'rotate(-90)')
         .attr('text-anchor', 'middle')
-        .text('Love meter (%)')
+        .text('Antal personlige stemmer')
 
       svg.append('text')
         .attr('class', 'label')
