@@ -65,18 +65,43 @@ function generateGraph1() {
         .data(lowestValues) // Brug de 10 laveste værdier i stedet for det oprindelige data
         .enter()
         .append('g');
+        .attr('transform', (d) => `translate(${xScale(d.KANDIDAT)}, 0)`);
+    
+   barGroups
+  .append('rect')
+  .attr('class', 'bar')
+  .attr('y', (g) => yScale(g.INDHOLD))
+  .attr('height', (g) => height - yScale(g.INDHOLD))
+  .attr('width', xScale.bandwidth())
+  .on('mouseenter', function (actual, i) {
+    // ...
+  })
+  .on('mouseleave', function () {
+    // ...
+  });
+
     
     barGroups
         .append('rect')
         .attr('class', 'bar')
-        .attr('x', (g) => xScale(g.KANDIDAT))
         .attr('y', (g) => yScale(g.INDHOLD))
         .attr('height', (g) => height - yScale(g.INDHOLD))
         .attr('width', xScale.bandwidth())
         .on('mouseenter', function (actual, i) {
           d3.selectAll('.INDHOLD')
             .attr('opacity', 0)
-      
+        .on('mouseleave', function () {
+          // ...
+        });
+
+      barGroups
+  .append('text')
+  .attr('class', 'INDHOLD')
+  .attr('x', xScale.bandwidth() / 2)
+  .attr('y', (g) => yScale(g.INDHOLD) + 30)
+  .attr('text-anchor', 'middle')
+  .attr('transform', 'rotate(90)')
+  .text((g) => g.KANDIDAT);
 
           d3.select(this)
             .transition()
