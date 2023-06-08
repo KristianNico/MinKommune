@@ -21,13 +21,9 @@ function generateGraph1() {
         .domain(sample.map((s) => s.KANDIDAT))
         .padding(0.4)
  
-      // Find den maksimale værdi af g.value i datasættet
-      const maxValue = d3.max(sample, (d) => d.value);
-
-      // Opdater yScale med den maksimale værdi som øvre grænseværdi
       const yScale = d3.scaleLinear()
         .range([height, 0])
-        .domain([0, maxValue]);
+        .domain([0, 1000]);
     
       // vertical grid lines
       // const makeXLines = () => d3.axisBottom()
