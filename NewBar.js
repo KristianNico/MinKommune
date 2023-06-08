@@ -65,7 +65,7 @@ function generateGraph1() {
         .data(lowestValues) // Brug de 10 laveste værdier i stedet for det oprindelige data
         .enter()
         .append('g');
-
+    
     barGroups
         .append('rect')
         .attr('class', 'bar')
@@ -76,6 +76,7 @@ function generateGraph1() {
         .on('mouseenter', function (actual, i) {
           d3.selectAll('.INDHOLD')
             .attr('opacity', 0)
+      
 
           d3.select(this)
             .transition()
@@ -96,7 +97,7 @@ function generateGraph1() {
           barGroups.append('text')
             .attr('class', 'divergence')
             .attr('x', (a) => xScale(a.KANDIDAT) + xScale.bandwidth() / 2)
-            .attr('y', (a) => yScale(a.INDHOLD) + 30)
+            .attr('y', (a) => yScale(a.INDHOLD) - 10)
             .attr('fill', 'white')
             .attr('text-anchor', 'middle')
             .text((a, idx) => {
