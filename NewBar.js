@@ -148,7 +148,7 @@ function generateGraph1() {
         .attr('x', width / 2 + margin)
         .attr('y', 40)
         .attr('text-anchor', 'middle')
-        .text('Most loved programming languages in 2018')
+        .text('Antal personlige stemmer ved KV 2021')
 
       svg.append('text')
         .attr('class', 'source')
