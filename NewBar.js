@@ -155,7 +155,7 @@ function generateGraph1() {
         .attr('x', width - margin / 2)
         .attr('y', height + margin * 1.7)
         .attr('text-anchor', 'start')
-        .text('Source: Stack Overflow, 2018')
+        .text('Kilde: Danmarks Statistik')
     })
     .catch(error => {
       console.error('Fejl ved indlæsning af data:', error);
