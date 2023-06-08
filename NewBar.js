@@ -98,7 +98,7 @@ function generateGraph1() {
 
               let text = ''
               if (divergence > 0) text += '+'
-              text += `${divergence}%`
+              text += `${divergence}`
 
               return idx !== i ? text : '';
             })
