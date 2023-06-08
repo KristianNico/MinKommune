@@ -4,7 +4,7 @@ function generateGraph1() {
   
   const margin = 80;
   const width = 1000 - 2 * margin;
-  const height = 800 - 2 * margin;
+  const height = 600 - 2 * margin;
 
   // Hent data eksternt
   fetch('https://KristianNico.github.io/MinKommune/data/KVPERS21.JSON')
@@ -23,7 +23,7 @@ function generateGraph1() {
 
       const yScale = d3.scaleLinear()
         .range([height, 0])
-        .domain([0, height]);
+        .domain([0, 800]);
 
       // vertical grid lines
       // const makeXLines = () => d3.axisBottom()
