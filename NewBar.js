@@ -160,3 +160,4 @@ function generateGraph1() {
     .catch(error => {
       console.error('Fejl ved indlæsning af data:', error);
     });
+}
