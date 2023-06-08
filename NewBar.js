@@ -63,7 +63,7 @@ function generateGraph1() {
       barGroups
         .append('rect')
         .attr('class', 'bar')
-        .attr('x', (g) => xScale(g.language))
+        .attr('x', (g) => xScale(g.KANDIDAT))
         .attr('y', (g) => yScale(g.INDHOLD))
         .attr('height', (g) => height - yScale(g.INDHOLD))
         .attr('width', xScale.bandwidth())
