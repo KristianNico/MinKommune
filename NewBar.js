@@ -89,6 +89,15 @@ function generateGraph1() {
           .tickSize(-width, 0, 0)
           .tickFormat('')
         );
+    chart.selectAll('.barGroups')
+      .data(filteredData)
+      .enter()
+      .append('text')
+      .attr('class', 'INDHOLD')
+      .attr('x', (d) => xScale(d.KANDIDAT) + xScale.bandwidth() / 2)
+      .attr('y', (d) => yScale(d.INDHOLD) + 30)
+      .attr('text-anchor', 'middle')
+      .attr('transform', 'rotate(25)');
 
       svg
         .append('text')
