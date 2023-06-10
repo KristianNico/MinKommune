@@ -43,6 +43,16 @@ d3.json(url).then(function(data) {
         .attr("width", xScale.bandwidth())
         .attr("y", function(d) { return yScale(d.INDHOLD); })
         .attr("height", function(d) { return 300 - yScale(d.INDHOLD); });
+
+    // Tilføj labels til bjælkerne
+    svg.selectAll(".label")
+        .data(filteredData)
+        .enter().append("text")
+        .attr("class", "label")
+        .attr("x", function(d) { return xScale(d.KANDIDAT) + xScale.bandwidth() / 2; })
+        .attr("y", function(d) { return yScale(d.INDHOLD) - 5; })
+        .attr("text-anchor", "middle")
+        .text(function(d) { return d.INDHOLD; });
 }).catch(function(error) {
     // Håndter fejl under hentning af data
     console.log(error);
