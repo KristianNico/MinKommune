@@ -21,10 +21,13 @@ h1 {
 }
 
 img.logo {
-  width: 50px; /* Juster størrelsen efter behov */
-  height: auto; /* Bevar billedets oprindelige proportioner */
-  margin-right: 10px; /* Tilpas margenen efter behov */
+    /* CSS-egenskaber for dit logo [img class logo] */
+  width: 10px; /* Eksempel på bredde */
+  height: auto; /* Eksempel på højde (bevarer billedets proportioner) */
+  border-radius: 50%; /* Eksempel på afrundede hjørner */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Eksempel på skyggeeffekt */
 }
+
 div#layout {
   text-align: center;
 }
