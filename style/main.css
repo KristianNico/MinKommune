@@ -1,13 +1,13 @@
 /* Global styling */
 body {
   font-family: Verdana, Arial, sans-serif;
-  background-color: #f6f6f4;
+  background-color: #edece5;
 }
 
 /* Header styling */
 header {
-  background-color: #f6f6f4;
-  color: #f6f6f4;
+  background-color: #edece5;
+  color: #edece5;
   padding: 20px;
   text-align: center;
   display: flex;
