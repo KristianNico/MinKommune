@@ -2,24 +2,35 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Min Kommune er også Din Kommune</title>
+  <title>Min Kommune er Din Kommune</title>
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <link rel="stylesheet" href="https://KristianNico.github.io/MinKommune/style/main.css">
   <script src="https://KristianNico.github.io/MinKommune/viz/NewBar.js"></script>
 </head>
-<body>
+<body class "homepage">
+  <a class="content" href="#primary">skip to content</a>
+  <div id="page" class="banner bottom">
+    <header id="masterheader" class="site-header">
+      <div class="area">
+        <div class="logo">
+          <a href="https://kristiannico.github.io/MinKommune/#"></a>      
+        </div>
+        <nav id="site-navigation" class="main-navigation">
+          <button class="menu toggle" aria-label="Main Menu" aria-controls="primany-menu" aria-expanded="false"
+          <i class="icon-menu">
+            ::before
+          </i>
+          <span>Menu</span>
+        </nav>
+
+      </div>
+    </header>
+
+  </div>
   <header>
     <img class="logo" src="https://KristianNico.github.io/MinKommune/logo-no-background.png" alt="Logo">
     <h1>Min Kommune er Din Kommune</h1>
   </header>
-  <div id="container1" class="container">
-    <svg id="Graph1"></div>
-  <div id="container2" class="container">
-    <svg id="Graph2"></div>
-  <div id="container3" class="container">
-    <svg id="Graph3"></div>
-  <div id="container4" class="container">
-    <svg id="Graph4"></div>
   <script>
   generateGraph1(); 
   generateGraph2(); 
