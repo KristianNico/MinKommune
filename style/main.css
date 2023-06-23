@@ -27,6 +27,11 @@ img.logo {
   margin: 10px; /* Eksempel på margen på 10 pixels omkring billedet */
 }
 
+i.icon-menu::before {
+  content: "\f0c9"; /* Eksempel på brug af Unicode-tegnkoden for ikonet (f.eks. fra Font Awesome) */
+  /* Yderligere egenskaber for pseudo-elementet ::before */
+}
+
 div#layout {
   text-align: center;
 }
