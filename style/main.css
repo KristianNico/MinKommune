@@ -22,8 +22,9 @@ h1 {
 
 img.logo {
     /* CSS-egenskaber for dit logo [img class logo] */
-  width: 50px; /* Eksempel på bredde */
+  width: 75px; /* Eksempel på bredde */
   height: auto; /* Eksempel på højde (bevarer billedets proportioner) */
+  margin: 10px; /* Eksempel på margen på 10 pixels omkring billedet */
 }
 
 div#layout {
