@@ -7,7 +7,7 @@ body {
 /* Header styling */
 header {
   background-color: #edece5;
-  color: #edece5;
+  color: #282828;
   padding: 20px;
   text-align: center;
   display: flex;
@@ -21,7 +21,7 @@ h1 {
 }
 
 img.logo {
-  width: 100px; /* Juster størrelsen efter behov */
+  width: 50px; /* Juster størrelsen efter behov */
   height: auto; /* Bevar billedets oprindelige proportioner */
   margin-right: 10px; /* Tilpas margenen efter behov */
 }
