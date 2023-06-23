@@ -12,17 +12,18 @@ header {
   text-align: center;
   display: flex;
   align-items: center;
+  font-family: "Lora", serif;
 }
 
 h1 {
-  font-size: 18px;
+  font-size: 26px;
   font-weight: bold;
   margin: 0;
 }
 
 img.logo {
     /* CSS-egenskaber for dit logo [img class logo] */
-  width: 75px; /* Eksempel på bredde */
+  width: 65px; /* Eksempel på bredde */
   height: auto; /* Eksempel på højde (bevarer billedets proportioner) */
   margin: 10px; /* Eksempel på margen på 10 pixels omkring billedet */
 }
