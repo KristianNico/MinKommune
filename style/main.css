@@ -33,18 +33,23 @@ img.logo {
 }
 
 .site-header {
+  border-bottom: 1px solid #ccc;
+}
+
+.header-wrapper {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
-.main-navigation {
-  display: flex;
+.logo,
+.site-title {
+  margin-right: 10px; /* Adjust this value as needed */
 }
 
 .main-navigation a {
-  margin-left: 50px; /* Adjust this value as needed */
+  margin-left: 10px; /* Adjust this value as needed */
 }
+
 
 div#layout {
   text-align: center;
