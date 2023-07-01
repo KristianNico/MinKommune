@@ -3,10 +3,11 @@
 
 const data = [10, 20, 30, 40, 50];
 
-/*const svg = d3.select("#visualization")
+/*
+const svg = d3.select("#visualization")
   .append("svg")
   .attr("width", 400)
-  .attr("height", 300);*/
+  .attr("height", 300);
 
 svg.selectAll("rect")
   .data(data)
@@ -17,3 +18,5 @@ svg.selectAll("rect")
   .attr("width", 40)
   .attr("height", d => d)
   .attr("fill", "steelblue");
+  
+*/
