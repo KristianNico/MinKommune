@@ -15,7 +15,7 @@ d3.json("https://KristianNico.github.io/MinKommune/data/FOLK_VARDE.json")
       .attr("height", svgHeight);
 
     // Define the header
-    var header = "Antal stemmer efter kandidat";
+    var header = "Udvikling i indbyggertal";
 
     // Append the header to the SVG
     svg
@@ -75,7 +75,7 @@ d3.json("https://KristianNico.github.io/MinKommune/data/FOLK_VARDE.json")
 
     // Create the line
     var line = d3.line()
-      .x(function(d) { return xScale(d.TID); })
+      .x(function(d) { return xScale(d.Dato); })
       .y(function(d) { return yScale(d.INDHOLD); });
 
     // Append the line path to the chart
