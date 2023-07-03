@@ -74,4 +74,4 @@ chart
   .attr("y", function (d) { return yScale(d.INDHOLD); })
   .attr("width", xScale.bandwidth())
   .attr("height", function (d) { return chartHeight - yScale(d.INDHOLD); })
-  .attr("fill", "steelblue");
+  .attr("fill", "steelblue")
