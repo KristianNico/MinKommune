@@ -2,7 +2,7 @@
 var container = d3.select("#graph-container");
 
 // Load the dataset from a JSON file
-d3.json("https://KristianNico.github.io/MinKommune/data/dataset.json")
+d3.json("https://KristianNico.github.io/MinKommune/data/FOLK_VARDE.json")
   .then(function (dataset) {
     // Set the dimensions of the SVG element
     var svgWidth = 400;
