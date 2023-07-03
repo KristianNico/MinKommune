@@ -23,6 +23,8 @@ d3.json("https://KristianNico.github.io/MinKommune/data/dataset.json")
       .attr("x", svgWidth / 2)
       .attr("y", 20)
       .attr("text-anchor", "middle")
+      .style("font-size", "14px")
+      .style("font-weight", "bold")
       .text(header);
 
     // Set the margins and dimensions for the chart
@@ -49,7 +51,8 @@ d3.json("https://KristianNico.github.io/MinKommune/data/dataset.json")
       .range([chartHeight, 0]);
 
     // Create the x-axis
-    var xAxis = d3.axisBottom(xScale);
+    var xAxis = d3.axisBottom(xScale)
+      .tickSizeOuter(0);
     chart
       .append("g")
       .attr("transform", "translate(0," + chartHeight + ")")
@@ -57,12 +60,18 @@ d3.json("https://KristianNico.github.io/MinKommune/data/dataset.json")
       .selectAll("text")
       .attr("transform", "rotate(-45)")
       .attr("text-anchor", "end")
-      .attr("dx", "-0.8em")
-      .attr("dy", "-0.15em");
+      .style("font-size", "12px");
 
     // Create the y-axis
-    var yAxis = d3.axisLeft(yScale);
-    chart.append("g").call(yAxis);
+    var yAxis = d3.axisLeft(yScale)
+      .ticks(5)
+      .tickSizeInner(-chartWidth)
+      .tickSizeOuter(0);
+    chart.append("g")
+      .call(yAxis)
+      .selectAll(".tick line")
+      .attr("stroke-dasharray", "2,2")
+      .attr("stroke-opacity", 0.5);
 
     // Create the line
     var line = d3.line()
